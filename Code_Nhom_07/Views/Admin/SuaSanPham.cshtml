@@ -1,0 +1,119 @@
+﻿@model Code_Nhom_07.Models.TUISACH
+
+@{
+    ViewBag.Title = "SuaSanPham";
+}
+
+<h2>SuaSanPham</h2>
+
+@using (Html.BeginForm("SuaSanPham", "Admin", FormMethod.Post, Model.MaTuiSach))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Túi sách</legend>
+
+        @Html.HiddenFor(model => model.MaTuiSach)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TenTuiSach)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenTuiSach)
+            @Html.ValidationMessageFor(model => model.TenTuiSach)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaThuongHieu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaThuongHieu)
+            @Html.ValidationMessageFor(model => model.MaThuongHieu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HinhAnh)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.XuatXu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.XuatXu)
+            @Html.ValidationMessageFor(model => model.XuatXu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GiaBan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GiaBan)
+            @Html.ValidationMessageFor(model => model.GiaBan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaLoai)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaLoai)
+            @Html.ValidationMessageFor(model => model.MaLoai)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChatLieu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChatLieu)
+            @Html.ValidationMessageFor(model => model.ChatLieu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChieuCao)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChieuCao)
+            @Html.ValidationMessageFor(model => model.ChieuCao)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChieuRong)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChieuRong)
+            @Html.ValidationMessageFor(model => model.ChieuRong)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChieuDai)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChieuDai)
+            @Html.ValidationMessageFor(model => model.ChieuDai)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MauSac)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MauSac)
+            @Html.ValidationMessageFor(model => model.MauSac)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MoTa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MoTa)
+            @Html.ValidationMessageFor(model => model.MoTa)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "/QLSanPham")
+</div>
+

@@ -1,0 +1,215 @@
+﻿@{
+    ViewBag.Title = "tatCaSanPham";
+    Layout = "~/Views/Shared/LayoutHome.cshtml";
+    
+    List<TUISACH> dsts = ViewBag.tuiSach;
+    List<PHANLOAI> dspl = ViewBag.phanLoai;
+    List<THUONGHIEU> dsth = ViewBag.thuongHieu;
+}
+
+@using Code_Nhom_07.Models;
+
+<link href="~/bootstrap5_2_3/css/bootstrap.css" rel="stylesheet" />
+<link href="~/bootstrap5_2_3/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/bootstrap5_2_3/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+@*link style*@
+<link href="~/assets/css/style.css" rel="stylesheet" />
+
+@*link font awesome 5.15.4*@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+<!-- ================  TẤT CẢ CÁC SẢN PHẨM   ============= -->
+<div class="container mt-4">
+    <div class="row">
+        <!-- các thể loại(màu sắc + phái,...) -->
+        <div class="col-md-2">
+            <!-- màu sắc -->
+            <div class="mt-4">
+                <h3 style="font-weight: bold; font-size: 20px;">Màu sắc</h3>
+                <div class="border p-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Đen
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Trắng
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Nâu
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Xanh navy
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Xám
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Chất liệu -->
+            <div class="mt-4">
+                <h3 style="font-weight: bold; font-size: 20px;">Chất liệu</h3>
+                <div class="border p-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Da cao cấp
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Vải cao cấp
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Da/Vải nhân tạo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Canvas
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Giới tính -->
+            <div class="mt-4">
+                <h3 style="font-weight: bold; font-size: 20px;">Giới tính</h3>
+                <div class="border p-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Nữ
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Nam
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Cả hai
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Phân loại -->
+            <div class="mt-4">
+                <h3 style="font-weight: bold; font-size: 20px;">Phân loại</h3>
+                <div class="border p-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Túi đeo hông
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Túi đeo chéo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Ví
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Túi xách tay
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Túi đeo vai
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Túi tay cầm
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- khoảng giá -->
+            <div class="mt-4">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <input type="text" placeholder="Từ 4tr" style="width: 60px;">
+                        </div>
+                        <div class="col-md-2">
+                            <div>-</div>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" placeholder="Đến 100tr" style="width: 70px;">
+                        </div>
+                    </div>
+                    <center><button type="button" class="mt-3 p-1 bg-dark text-white rounded">Áp dụng</button></center>
+                </div>
+            </div>
+            <!-- giới thiệu sơ về túi xách của hãng Ý -->
+            <div class="mt-4">
+                <h5>Túi xách Gucci chính hãng Ý. </h5>
+                <p>
+                    Sản phẩm túi thời trang nữ cao cấp đầy đủ màu sắc đủ hình dang Ví, túi trống, Tote...cho cả Nam và Nữ.
+                </p>
+            </div>
+        </div>
+        <!-- tất cả các sản phẩm -->
+        <div class="col-md-10">
+            <div class="row">
+                <!-- tên Gucci và sắp xếp -->
+                <div class="col-md-6">
+                    <h5>Túi xách Gucci của 2002SHOP</h5>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-end">
+                        <div class="form-group mb-2" style="width: 140px;">
+                            <select class="form-control" style="text-align:center">
+                                <option>Giá mặc định</option>
+                                <option>Giá tăng dần</option>
+                                <option>Giá giảm dần</option>
+                                <option>Đang giảm giá</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr style="border-top: 1px solid #000;">
+                <!-- các sản phẩm -->
+                <div class="row mt-3">
+                    @foreach (var item in dsts)
+                    {
+                        <div class="col-md-3">
+                            <div class="card card_sanPham" style="height: 410px; margin-bottom: 15px">
+                                <a href="/Home/thongTinChiTietCuaSP/@item.MaTuiSach" style="background: #CCFFFF; height: 211px">
+                                    <img class="w-100 card-img-top" src="~/assets/img/@item.HinhAnh" style="height: 201px">
+                                </a>
+                                <div class="card-body">
+                                    <a href="/Home/thongTinChiTietCuaSP" class="text-decoration-none text-dark"><h5 class="card-title" style="font-size: 15px; font-size: 15px; height: 93px;">@item.TenTuiSach</h5></a>
+                                    <p class="card-text" style="font-weight: 700">@item.GiaBan VND</p>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

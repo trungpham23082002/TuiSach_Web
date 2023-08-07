@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "QLKhachHang";
+    Layout = "~/Views/Shared/LayoutChungAdmin.cshtml";
+}
+
+@using Code_Nhom_07.Models;
+@model List<KHACHHANG>
+
+<div class="row mt-3">
+    <div class="tieuDe">
+        <p>Danh Sách khách hàng</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="row">
+        <div class="dsSP">
+            <nav class="navbar navbar-expand-sm">
+                <div class="container">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="background-color: #66FF33;">
+                            <a href="#" class="nav-link">Xóa tất cả</a>
+                        </li>
+                    </ul>
+                    <div class="row">
+
+                    </div>
+                </div>
+            </nav>
+            <hr style="border: 1px solid gray;">
+            <div style="width: 200px;">
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <button class="btn">Tìm kiếm</button>
+                </div>
+            </div>
+            <table class="table text-center">
+                <tr>
+                    <th>ID khách hàng</th>
+                    <th>Họ và tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
+                    <th>SĐT</th>
+                    <th>Tài khoản</th>
+                    <th>Mật khẩu</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaKhachHang</td>
+                        <td>@item.HoTen</td>
+                        <td>@item.DiaChi</td>
+                        <td>@item.NgaySinh</td>
+                        <td>@item.GioiTinh</td>
+                        <td>@item.DienThoai</td>
+                        <td>@item.TaiKhoan</td>
+                        <td>@item.MatKhau</td>
+                        <td>
+                            <a href="/Admin/XoaKhachHang/?m=@item.MaKhachHang">
+                                Xóa
+                            </a>| sửa</td>
+
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

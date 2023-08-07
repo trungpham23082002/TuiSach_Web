@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "ThemMoiLoaiHang";
+    Layout = "~/Views/Shared/LayoutChungAdmin.cshtml";
+}
+@using Code_Nhom_07.Models;
+<h2>Thêm mới loại hàng</h2>
+<form action="/Admin/XLThemMoi" method="post">
+
+    <fieldset>
+        <legend>Phân loại túi sách</legend>
+        <div class="editor-label">
+            Mã loại
+        </div>
+
+        <div class="editor-field">
+            <input type="text" name="MaLoai" />
+        </div>
+        <div class="editor-label">
+            Tên loại
+        </div>
+
+        <div class="editor-field">
+            <input type="text" name="TenLoai" />
+        </div>
+        <div class="editor-label">
+            Giới tính
+        </div>
+        <div class="editor-field">
+            <input type="text" name="GioiTinh" />
+        </div>
+        <p>
+            <input type="submit" value="Thêm" />
+        </p>
+    </fieldset>
+
+
+    <div>
+        @Html.ActionLink("Back to List", "/Admin/QLLoaiHang")
+    </div>
+</form>
+

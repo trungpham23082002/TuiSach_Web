@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TuiSach">
+  <DataContextMoniker Name="/TuiSachDataContext" />
+  <nestedChildShapes>
+    <classShape Id="047d5e94-ead8-47b6-85cd-f7608ad7f1bf" absoluteBounds="6.25, 1.375, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/TuiSachDataContext/CHITIETDONHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="21e1a511-34fb-4c02-b6df-2ed708f3821b" absoluteBounds="6.265, 1.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="93daa379-7473-42ce-b36a-e3aa01fac184" absoluteBounds="3.5, 5.25, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/TuiSachDataContext/KHACHHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e85311e7-6da2-40d4-9dcb-3d950fe6e041" absoluteBounds="3.515, 5.71, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a466e1a-f4fe-425d-8c80-d9d7cc58f2c8" absoluteBounds="0.75, 2, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/TuiSachDataContext/PHANLOAI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0204f244-dad0-4e4f-8335-6bd88fa15f64" absoluteBounds="0.765, 2.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44569d25-fc3f-4b73-930e-1c623deb3565" absoluteBounds="3.5, 1, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/TuiSachDataContext/TUISACH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8181103b-3527-4577-9583-5c74b324bd85" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d05e5d0a-6d8b-436e-9c8b-6be91af75afc" absoluteBounds="0.75, 5.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TuiSachDataContext/THUONGHIEU" />
+      <nestedChildShapes>
+        <elementListCompartment Id="241c4294-fcee-447a-9e55-cea27a6c953d" absoluteBounds="0.765, 6.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 6.61620198567708); (7.25 : 6.61620198567708); (7.25 : 3.9151025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TuiSachDataContext/KHACHHANG/KHACHHANG_CHITIETDONHANG" />
+      <nodes>
+        <classShapeMoniker Id="93daa379-7473-42ce-b36a-e3aa01fac184" />
+        <classShapeMoniker Id="047d5e94-ead8-47b6-85cd-f7608ad7f1bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.64505126953125); (6.25 : 2.64505126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TuiSachDataContext/TUISACH/TUISACH_CHITIETDONHANG" />
+      <nodes>
+        <classShapeMoniker Id="44569d25-fc3f-4b73-930e-1c623deb3565" />
+        <classShapeMoniker Id="047d5e94-ead8-47b6-85cd-f7608ad7f1bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.69314697265625); (3.04166666666667 : 2.69314697265625 : JumpStart); (3.20833333333333 : 2.69314697265625 : JumpEnd); (3.5 : 2.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TuiSachDataContext/PHANLOAI/PHANLOAI_TUISACH" />
+      <nodes>
+        <classShapeMoniker Id="8a466e1a-f4fe-425d-8c80-d9d7cc58f2c8" />
+        <classShapeMoniker Id="44569d25-fc3f-4b73-930e-1c623deb3565" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.87621330413662); (3.125 : 5.50121330413662); (3.125 : 1.81532148632813); (3.5 : 1.81532148632813)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TuiSachDataContext/THUONGHIEU/THUONGHIEU_TUISACH" />
+      <nodes>
+        <classShapeMoniker Id="d05e5d0a-6d8b-436e-9c8b-6be91af75afc" />
+        <classShapeMoniker Id="44569d25-fc3f-4b73-930e-1c623deb3565" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

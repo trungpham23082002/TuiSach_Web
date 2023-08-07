@@ -1,0 +1,342 @@
+﻿@{
+    ViewBag.Title = "Home_Index";
+    Layout = "~/Views/Shared/LayoutHome.cshtml";
+}
+
+@using Code_Nhom_07.Models;
+@model List<TUISACH>
+
+<link href="~/bootstrap5_2_3/css/bootstrap.css" rel="stylesheet" />
+<link href="~/bootstrap5_2_3/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/bootstrap5_2_3/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+@*link style*@
+<link href="~/assets/css/style.css" rel="stylesheet" />
+
+@*link font awesome 5.15.4*@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+<style>
+    .loader-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 10000;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .loader-container img {
+        width: 35rem;
+    }
+
+    .loader-container.fade-out {
+        top: -110%;
+        opacity: 0;
+    }
+</style>
+
+<!-- =======================     HEADER     ======================== -->
+<div class="container">
+    <div class="row">
+        <!-- Carousel -->
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner mb-3 silde_bg_home">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1 style="font-weight:bold;font-size: 60px; line-height: 60px; margin: 75px 10px; font-family: 'Dancing Script', cursive;">Mang đến cho bạn <br> Một phong cách mới!</h1>
+                            <p style="padding-left: 20px; font-family: 'Dancing Script', cursive; color: black;">
+                                “Muốn ăn gạo thì trồng lúa – Muốn làm công chúa thì ghé shop em”
+                            </p>
+                            <a href="/Home/tatCaSanPham" class="btn_1">Khám phá chúng tôi ngay &#8594;</a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <img class="home_img" src="~/assets/img/home.png" style="max-width: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="~/assets/img/hinh_nen_1.png" />
+                </div>
+                <div class="carousel-item">
+                    <img src="~/assets/img/hinh_nen_3.png" />
+                </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<!-- =======================     NOEL CÙNG 2002SHOP     ======================== -->
+<div class="container mt-5 pb-4 pt-5 " style="border-radius: 13px; background-image: url('https://giadinhthongminh.net/wp-content/uploads/2022/11/background-noel-giang-sinh-13.jpg'); no-repeat center center fixed; background-size: cover; ">
+    <div class="row tuan_le" style="">
+        <h1 class=" text-center" style="font-family: 'Dancing Script', cursive; color: white; font-weight: bold; font-size: 32px">
+            DEAL NGON MÙA NOEL
+        </h1>
+    </div>
+    <div class="row san_pham_tuan_le">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card card-group card_sanPham">
+                    <a href="/Home/thongTinChiTietCuaSP/@item.MaTuiSach">
+                        <img class="w-100 card-img-top" src="~/assets/img/@item.HinhAnh">
+                    </a>
+                    <div class="card-body">
+                        <a href="/Chung/thongTinChiTietCuaSP/@item.MaTuiSach" class="text-decoration-none text-dark">
+                            <h5 class="card-title" style="font-size:15px">@item.TenTuiSach</h5>
+                        </a>
+                        <p class="card-text">@item.GiaBan <span style="text-decoration-line:line-through; font-size: 11px">60.000.000</span></p>
+                        <div class="rating">
+                            <i class="fas fa-tree-christmas"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <button type="button" class="btn_1" style="margin: 37px 0">
+                <a href="/Home/tatCaSanPham" style="color: white">Xem tất cả sản phẩm</a>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- =======================     TUẦN LỄ GUCCI     ======================== -->
+<div class="container mt-5 pb-4 pt-4 " style="background-color: #6eb7ec; border-radius: 15px">
+    <div class="row tuan_le">
+        <h1 class="text-center" style="color: white; font-weight:bold; font-size: 32px">TUẦN LỄ GUCCI</h1>
+    </div>
+    <div class="row">
+        <!-- Carousel -->
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner mb-3">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="~/assets/img/tui-gucci-min-tuan-le.jpg" class="d-block w-100" style="border-radius: 5px; height: 200px;" />
+                        </div>
+                        <div class="col-md-4">
+                            <img src="~/assets/img/tui-xach-gucci-min-tuan-le.jpg" class="d-block w-100" style="border-radius: 5px; height: 200px" />
+                        </div>
+                        <div class="col-md-4">
+                            <img src="~/assets/img/tui-gucci-min-tuan-le.jpg" class="d-block w-100" style="border-radius: 5px; height: 200px" />
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="~/assets/img/tui-gucci-min-tuan-le.jpg" class="d-block w-100" style="border-radius: 5px; height: 200px;" />
+                        </div>
+                        <div class="col-md-4">
+                            <img src="~/assets/img/tui-xach-gucci-min-tuan-le.jpg" class="d-block w-100" style="border-radius: 5px; height: 200px" />
+                        </div>
+                        <div class="col-md-4">
+                            <img src="~/assets/img/tui-gucci-min-tuan-le.jpg" class="d-block w-100" style="border-radius: 5px; height: 200px" />
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="~/assets/img/tui-gucci-min-tuan-le.jpg" class="d-block w-100" style="border-radius: 5px; height: 200px;" />
+                        </div>
+                        <div class="col-md-4">
+                            <img src="~/assets/img/tui-xach-gucci-min-tuan-le.jpg" class="d-block w-100" style="border-radius: 5px; height: 200px" />
+                        </div>
+                        <div class="col-md-4">
+                            <img src="~/assets/img/tui-gucci-min-tuan-le.jpg" class="d-block w-100" style="border-radius: 5px; height: 200px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="row san_pham_tuan_le">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card card-group card_sanPham" >
+                    <a href="/Home/thongTinChiTietCuaSP/@item.MaTuiSach">
+                        <img class="w-100 card-img-top" src="~/assets/img/@item.HinhAnh">
+                    </a>
+                    <div class="card-body">
+                        <a href="/Chung/thongTinChiTietCuaSP/@item.MaTuiSach" class="text-decoration-none text-dark">
+                            <h5 class="card-title" style="font-size:15px">@item.TenTuiSach</h5>
+                        </a>
+                        <p class="card-text">@item.GiaBan</p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <button type="button" class="btn btn-light" style="margin-top: 16px">
+                <a href="/Home/tatCaSanPham" style="color: black">Xem tất cả sản phẩm</a>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- =======================     SP NỔI BẬT     ======================== -->
+<div class="container mt-5">
+    <h2 class="title text-center">Sản phẩm nổi bật</h2>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card card-group" style="height: 430px; border-radius:13px">
+                    <a href="/Home/thongTinChiTietCuaSP/@item.MaTuiSach" style="background: #FFFFFF; height: 253px; border-radius: 13px">
+                        <img class="w-100 card-img-top" src="~/assets/img/@item.HinhAnh">
+                    </a>
+                    <div class="card-body">
+                        <a href="/Chung/thongTinChiTietCuaSP/@item.MaTuiSach" class="text-decoration-none text-dark">
+                            <h5 class="card-title" style="font-size:15px">@item.TenTuiSach</h5>
+                        </a>
+                        @*<p class="card-text">@item.GiaBan</p>*@
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!-- =======================     SP ĐỘC QUYỀN     ======================== -->
+<div class="container-fluid mt-5 ">
+    <div class="row pt-5 pb-5" style="background: radial-gradient(#fff,#ffd6d6);">
+        <div class="col-md-7">
+            <img style="margin-left: 180px;" src="~/assets/img/img_001.jpg" alt="">
+        </div>
+        <div class="col-md-5 mt-5">
+            @foreach (var item in Model)
+            {
+                <div>
+                    <p style="font-size: 20px;"><b>Độc quyền tại 2002SHOP</b></p>
+                    <h1>@item.TenTuiSach</h1>
+                    <p><b>Mô tả sản phẩm</b><br>@item.MoTa</p>
+                    <a href="#" class="btn_1">Mua ngay bạn yêu của SHOP ơi !</a>
+                </div>
+                break;
+            }
+        </div>
+    </div>
+</div>
+
+<!-- =======================     ĐÁNH GIÁ CỦA KHÁCH HÀNG     ======================== -->
+<div class="container mt-5">
+    <h2 class="title text-center">Đánh giá của khách hàng</h2>
+    <div class="row">
+        <div class="col-md-4 ">
+            <div class="ngDungDanhGia">
+                <img src="~/assets/img/KH2.jpg">
+                <h3>Kiều Nguyệt Nga</h3>
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    Sản phẩm rất tốt, web xịn mịn đẹp, coder đẹp trai
+                </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="ngDungDanhGia">
+                <img src="~/assets/img/KH3.jpg">
+                <h3>Diễm My Cute</h3>
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    Chất lượng bao phê, nên ghe mua tại shop nhé
+                </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="ngDungDanhGia">
+                <img src="~/assets/img/KH1.jpg">
+                <h3>Triệu Phi Vân</h3>
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    Giá cả phải chăng, tư vấn nhiệt tình, sản phẩm bao bì tốt
+                </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- =======================     LOAD TRANG WEB     ======================== -->
+<div class="loader-container">
+    <img src="~/assets/img/shopping-loader.gif" />
+</div>
+
+
+<!-- javascript -->
+<script src="~/assets/javascript/JavaScript1.js"></script>

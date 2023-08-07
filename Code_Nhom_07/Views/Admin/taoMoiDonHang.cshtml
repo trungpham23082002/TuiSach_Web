@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "taoMoiDonHang";
+    Layout = "~/Views/Shared/LayoutChungAdmin.cshtml";
+}
+
+<div class="row mt-3">
+    <div class="tieuDe">
+        <p>Danh Sách đơn hàng / Thêm mới đơn hàng</p>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="row">
+        <div class="dsSP">
+            <h5 style="margin-top: 10px;">Tạo mới đơn hàng</h5>
+            <hr style="border: 1px solid gray;">
+            <form action="/Admin/XLThemMoiDonHang" method="post">
+                <div class="row">
+                    <div class="col">
+                        <label for="" style="font-weight: bold;" >Mã đơn hàng</label>
+                        <input type="text" class="form-control" name="MaDonHang">
+                    </div>
+                    <div class="col" style="font-weight: bold;">
+                        <label for="">Tên sản phẩm</label>
+                        <input type="text" class="form-control" name="MaTuiSach">
+                    </div>
+                    <div class="col" style="font-weight: bold;">
+                        <label for="">Mã khách hàng</label>
+                        <input type="text" class="form-control" name="MaKhachHang">
+                    </div>
+                    <div class="col">
+                        <label for="" style="font-weight: bold;">Ngày lập</label>
+                        <input type="date" class="form-control" name="NgayLap">
+                    </div>
+                    <div class="col">
+                        <label for="" style="font-weight: bold;">Ngày giao</label>
+                        <input type="date" class="form-control" name="NgayGiao">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <label for="" style="font-weight: bold;">Ngày thanh toán</label>
+                        <input type="date" class="form-control" name="NgayThanhToan">
+                    </div>
+                    <div class="col">
+                        <label for="" style="font-weight: bold;">Số lượng</label>
+                        <input type="text" class="form-control" name="SoLuong">
+                    </div>
+                    <div class="col">
+                        <label for="" style="font-weight: bold;">Đơn giá</label>
+                        <input type="text" class="form-control" name="DonGia">
+                    </div>
+                    <div class="col">
+                        <label for="" style="font-weight: bold;">Thuế</label>
+                        <input type="text" class="form-control" name="Thue">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <button type="button" class="btn bg-success"><input type="submit" value="Thêm" /></button>
+                    <button type="button" class="btn bg-danger"><a href="/Admin/QLDonHang">Hủy bỏ</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Code_Nhom_07.Models.CHITIETDONHANG>
+
+@{
+    var sl = @Model.Sum(i => i.SoLuong);
+    var tongTien = @Model.Sum(i => i.SoLuong * i.DonGia);
+}
+
+
+<p>
+    SL:@sl/ @tongTien
+</p>
+
+<table class="table text-center">
+    <tr>
+        <th>
+            Mã sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Đơn giá
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.MaTuiSach
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @item.DonGia
+            </td>
+        </tr>
+    }
+</table>

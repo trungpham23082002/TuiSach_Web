@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/bootstrap5_2_3/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/bootstrap5_2_3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/bootstrap5_2_3/js/bootstrap.bundle.min.js"></script>
+
+    @*link style*@
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+
+    @*link font awesome 5.15.4*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #e9d8f4;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+    @using Code_Nhom_07.Models;
+   <!-- =======================     NAVBAR     ======================== -->
+    <nav class="navbar navbar-expand-sm justify-content-between header" style="height:75px">
+        <div class="logo">
+            <a href="/Home/Home_Index">
+                <img src="~/assets/img/logo2002SHOPPNG.png" alt="" style="width: 80px; height: 80px; ">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-top:26px">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/Home/Home_Index">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/Home/tatCaSanPham">Sản phẩm</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/Home/gioiThieu">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/Home/lienHe">Liên hệ</a>
+                </li>
+                <li>
+                    <form action="/Home/XLTimKiem" method="post">
+                        <div class="input-group">
+                            <input name="txtTen" type="search" placeholder="Nhập từ bạn cần tìm?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                            <div class="input-group-append">
+                                <button id="button-addon1" type="submit" class="btn btn-link text-primary"><a href="/Home/TimKiem"><i class="fa fa-search"></i></a></button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+        <div class="taiKhoan d-flex ml-4" style="display: flex; align-items: center;">
+            @{
+                if (Session["kh"] != null)
+                {
+                    <div class="me-3">
+                        <p>@Session["kh"]</p>
+                    </div>
+                    <div class="me-3"><a class="nav-link" href="/KhachHang/KhachHang_dangXuat">Đăng xuất</a></div>
+                }
+                else
+                {
+                     <div class="me-3">
+                        <a class="nav-link" href="/KhachHang/KhachHang_DangNhap">Đăng nhập</a>
+                    </div>
+                    <div class="me-3"><a class="nav-link" href="/Home/dangKy">Đăng ký</a></div>
+                }
+            }
+            <div class="me-3">
+                <a href="/Home/voHang">
+                    <img src="~/assets/img/cart.png" style="width:30px; height:30px">
+                </a>
+                @{
+                    if (Session["gh"] == null)
+                    {
+                        <span>0 Sản phẩm</span>
+                    }
+                    else
+                    {
+                        GioHang g = (GioHang)Session["gh"];
+                        <span>@g.DemSLMatHang() Sản phẩm</span>
+                    }
+                }
+            </div>
+
+        </div>
+    </nav>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <div class="container-fluid mt-5 footer">
+        <div class="row text-center p-3">
+            <div class="col-md-3">
+                <div>
+                    <h3>Download Our App</h3>
+                    <p>Tải xuống ứng dụng cho điện thoại di động Android và iOS.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="~/assets/img/play-store.png" style="width:100%">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="~/assets/img/app-store.png" style="width:100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <div>
+                        <img src="~/assets/img/logo2002SHOPPNG.png" alt="" style="height: 90px;">
+                    </div>
+                    <p>Cô sẽ cho 10đ ố la la</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <h3>Liên Kết</h3>
+                    <ul>
+                        <li><a href="#">Chương trình sale</a></li>
+                        <li><a href="#">Bài đăng trên blog</a></li>
+                        <li><a href="#">Chính sách hoàn trả</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <h3>Theo dõi chúng tôi</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Youtube</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <hr style="border-top: 1px solid #fff;">
+        <div class="row text-center">
+            <p>Cửa hàng túi xách 2002SHOP - Hải - Trân - Trung</p>
+        </div>
+    </div>
+</body>
+</html>
